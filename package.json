@@ -1,0 +1,29 @@
+{
+  "name": "rpx2rem-loader-eshop",
+  "version": "1.0.0",
+  "description": "A webpack loader auto rpx to rem on vue.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gygyggy/rpx2rem-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "px2rem",
+    "rpx",
+    "to",
+    "rem"
+  ],
+  "author": "gy284763415@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gygyggy/rpx2rem-loader/issues"
+  },
+  "homepage": "https://github.com/gygyggy/rpx2rem-loader#readme"
+}
