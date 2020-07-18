@@ -1,6 +1,6 @@
 {
   "name": "rpx2rem-loader-eshop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack loader auto rpx to rem on vue.",
   "main": "index.js",
   "directories": {
