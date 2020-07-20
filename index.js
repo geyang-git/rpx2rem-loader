@@ -6,18 +6,18 @@ var assign = Object.assign
 
 const LOADER_UTILS = require('loader-utils')
 
-module.exports = function (content, file, conf) {
+module.exports = function (content, file, conf, fromRunning) {
   const CONFIG = LOADER_UTILS.getOptions(this)
-  const route = CONFIG.route
-  if (route && route.find(item => {return this.resourcePath.includes(item)})) {
-    var defaultConf = {
-      rem: 18,
-      min: 3,
-      dpr: 2,
-      fontSize2Rem: true,
-      exclude: []
-    }
-    var cfg = assign({}, defaultConf, conf)
+  const defaultConf = {
+    rem: 30,
+    min: 3,
+    dpr: 2,
+    fontSize2Rem: true,
+    exclude: []
+  }
+  const cfg = assign({}, defaultConf, conf)
+  if (CONFIG && CONFIG.route && CONFIG.route.find(item => {return this.resourcePath.includes(item)})) {
+
     //解析template部分
     var reg = /\sstyle\s*=\s*('([^']*)'|"([^"]*)")/g
     var res = reg.exec(content)
@@ -45,7 +45,10 @@ module.exports = function (content, file, conf) {
         return first.replace(thired, rem(thired, file, cfg))
       })
     }
-    // console.log(content)
   }
-  this.callback(null, content, file)
+  if (fromRunning) {
+    return rem(content, file, cfg)
+  } else {
+    this.callback(null, content, file)
+  }
 }
